@@ -3,12 +3,14 @@ var redis = require('redis');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+
 var publisher = require("redis").createClient(6379, 'atoriredis.redis.cache.windows.net');
 publisher.auth('wvSGKLKzvtApqxs4RUdx0ORbzYp5CR8S4NgUXl/kYjE=', function (err) {
     if (err) {
         console.log('auth error!!!');
     }
 });
+
 var subscriber = require("redis").createClient(6379, 'atoriredis.redis.cache.windows.net');
 subscriber.auth('wvSGKLKzvtApqxs4RUdx0ORbzYp5CR8S4NgUXl/kYjE=', function (err) {
     if (err) {
@@ -16,11 +18,12 @@ subscriber.auth('wvSGKLKzvtApqxs4RUdx0ORbzYp5CR8S4NgUXl/kYjE=', function (err) {
     }
 });
 
-//var ioredis = require('socket.io-redis');
-//io.adapter(ioredis({
-//    host: 'atoriredis.redis.cache.windows.net',
-//    port: 6379
-//}));
+var ioredis = require('socket.io-redis');
+io.adapter(ioredis({
+    host: 'atoriredis.redis.cache.windows.net',
+    port: 6379 ,
+    auth_pass: 'wvSGKLKzvtApqxs4RUdx0ORbzYp5CR8S4NgUXl/kYjE='
+}));
 
 var https = require('https');
 
