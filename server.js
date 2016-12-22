@@ -4,15 +4,17 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-const redisHost = 'atoriredis.redis.cache.windows.net';
-const redisPort = 6379;
-const redisKey = 'XFWlUowkF7B7uQCXuwQ9BVPurvgU8NZMqoH5baNLJbA=';
-const redisChannel = 'notify:sid';
+var conf = require('config');
 
-const sioRedisHost = 'atoriredis.redis.cache.windows.net';
-const sioRedisPort = 6379;
-const sioRedisKey = 'XFWlUowkF7B7uQCXuwQ9BVPurvgU8NZMqoH5baNLJbA=';
-const sioEventName = 'register';
+const redisHost = conf.redis.host;
+const redisPort = conf.redis.port;
+const redisKey = conf.redis.key;
+const redisChannel = conf.redis.channel;
+
+const sioRedisHost = conf.scaleRedis.host;
+const sioRedisPort = conf.scaleRedis.port;
+const sioRedisKey = conf.scaleRedis.key;
+const sioEventName = conf.scaleRedis.eventName;
 
 /**
  * IDのpub/sub用 publisher

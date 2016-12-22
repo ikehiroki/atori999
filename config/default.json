@@ -1,0 +1,14 @@
+{
+    "redis":{
+        "host":"atoriredis.redis.cache.windows.net",
+        "port":6379,
+        "key":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "channel":"notify:sid"
+    },
+    "scaleRedis":{
+        "host":"atoriredis.redis.cache.windows.net",
+        "port":6379,
+        "key":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "eventName":"register"
+    }
+}
