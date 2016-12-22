@@ -5,12 +5,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 const redisHost = 'atoriredis.redis.cache.windows.net';
-const redisPort = 6380;
+const redisPort = 6379;
 const redisKey = 'XFWlUowkF7B7uQCXuwQ9BVPurvgU8NZMqoH5baNLJbA=';
 const redisChannel = 'notify:sid';
 
 const sioRedisHost = 'atoriredis.redis.cache.windows.net';
-const sioRedisPort = 6380;
+const sioRedisPort = 6379;
 const sioRedisKey = 'XFWlUowkF7B7uQCXuwQ9BVPurvgU8NZMqoH5baNLJbA=';
 const sioEventName = 'register';
 
